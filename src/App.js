@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
 import './App.css';
+import ChosenLocation from './Components/ChosenLocation'
+import Input from './Components/Input'
+import WeatherInfo from './Components/WeatherInfo'
+import Header from './Components/Header'
+import { UserContext } from './UserContext'
 
 function App() {
+  const [userLocation, setUserLocation] =useState('')
+  useEffect(() => {
+    const url = `http://api.weatherstack.com/current?access_key=${process.env.REACT_APP_STOCK_API_KEY}&query=${userLocation}&units=f`;
+    fetch(url)
+			.then((res) => res.json())
+			.then(console.log)
+			.catch(console.error);
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Find the weather</h1>
+<UserContext.Provider value={{userLocation, setUserLocation}}>
+     <Header/>
+      <ChosenLocation/>
+
+</UserContext.Provider>
     </div>
   );
 }
 
 export default App;
+
+//PSEUDO CODE
+//So I will need grab the weather URL, and depending on which location I put in, the fetch should query from that location. 
+//I will need to use fetch, and useState
+
+
+//Once queried, the location's weather data should show up in a readable fashion.
