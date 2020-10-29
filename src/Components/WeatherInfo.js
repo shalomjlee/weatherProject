@@ -12,14 +12,15 @@ const WeatherInfo = () => {
 		return (
 			<div>
 				<h1>Welcome to {weatherLocation.location.name}</h1>
-				<h2>Weather information</h2>
+				<h2>Here's the weather information from {weatherLocation.location.name}</h2>
 				<h3>
-					At {weatherLocation.current.observation_time} the current temperature
+					At {weatherLocation.current.observation_time} the temperature
 					is {weatherLocation.current.temperature}
-					{weatherLocation.request.unit}
+					{weatherLocation.request.unit}, and feels like {weatherLocation.current.feelslike}{weatherLocation.request.unit}
 				</h3>
+                <h3>The current humidity is {weatherLocation.current.humidity}%</h3>
 				<h3>
-					There is currently {weatherLocation.current.weather_descriptions}
+					There is currently {weatherLocation.current.weather_descriptions} weather
 					<img
 						src={weatherLocation.current.weather_icons}
 						alt='current weather'
