@@ -21,14 +21,14 @@ const Input = () => {
 					/>
 					<button type='submit'>Submit</button>
 				</form>
-				<div class='dropdown'>
-					<button className='dropbtn'>Unit</button>
-					<div className='dropdown-content'>
-						<a href='#'>F</a>
-						<a href='#'>C</a>
-						<a href='#'>K</a>
-					</div>
-				</div>
+				<select>
+					<option value='F'>Fahrenheit</option>
+					<option value='C'>Celsius</option>
+					<option selected value='K'>
+						Kelvin
+					</option>
+					<option value='mango'>Mango</option>
+				</select>
 			</div>
 		);
 };
