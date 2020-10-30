@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './App.css';
+// import './App.css';
 import WeatherInfo from './Components/WeatherInfo'
 import Header from './Components/Header'
 import { UserContext } from './UserContext'
@@ -7,19 +7,20 @@ import { UserContext } from './UserContext'
 function App() {
   const [weatherLocation, setWeatherLocation]= useState('')
   const [searchString, setSearchString]=useState('')
- 
+  
   const getSearchData = () => {
+    const url = `https://www.metaweather.com/api/location/search/?query=${searchString}/`;
+    // `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=${searchString}&appid=${process.env.REACT_APP_STOCK_API_KEY}`
 
-    const url = `http://api.weatherstack.com/current?access_key=${process.env.REACT_APP_STOCK_API_KEY}&query=${searchString}&units=f`;
-  
-  
-      fetch(url)
-        .then((res) => res.json())
-        .then((resJson) => setWeatherLocation(resJson))
-        .then(res => console.log(res))
-  
-        .catch(console.error);
-  }
+		// `https://api.weatherstack.com/current?access_key=${process.env.REACT_APP_STOCK_API_KEY}&query=${searchString}&units=f`;
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((resJson) => setWeatherLocation(resJson))
+			.then((res) => console.log(res))
+
+			.catch(console.error);
+	}
   return (
     <div className="App">
       <h1>Find the weather</h1>
