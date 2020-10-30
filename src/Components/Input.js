@@ -27,7 +27,6 @@ const Input = () => {
 					<option selected value='K'>
 						Kelvin
 					</option>
-					<option value='mango'>Mango</option>
 				</select>
 			</div>
 		);
