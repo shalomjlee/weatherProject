@@ -1,13 +1,19 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../UserContext';
 import './Input.css';
+
+
 const Input = () => {
+	
 	const {
 		searchString,
 		setSearchString,
 		getSearchData,
 		selectUnit,
-		getSelectUnit,
+		setSelectUnit,
+		tempUnit,
+		setTempUnit,
+		getTempUnit,
 	} = useContext(UserContext);
 
 	return (
@@ -16,7 +22,9 @@ const Input = () => {
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
+					// setSelectUnit(tempUnit);
 					getSearchData();
+					getTempUnit();
 				}}>
 				<input
 					type='text'
@@ -24,20 +32,23 @@ const Input = () => {
 					value={searchString}
 					onChange={(event) => setSearchString(event.target.value)}
 				/>
-				<button type='submit'>Submit</button>
-			</form>
-			<form
-				onSubmit={(event) => {
-					event.preventDefault();
-					selectUnit();
-				}}>
-				<select>
+				<select
+					type='select'
+					value={selectUnit}
+					onChange={(event) => {
+						console.log('hello world');
+						
+						setSelectUnit(event.target.value);
+					}}>
+					
+					
 					<option selected value='I'>
 						Fahrenheit
 					</option>
 					<option value='M'>Celsius</option>
 					<option value='S'>Kelvin</option>
 				</select>
+				<button type='submit'>Submit</button>
 			</form>
 		</div>
 	);
