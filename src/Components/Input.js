@@ -2,10 +2,14 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../UserContext';
 import './Input.css';
 const Input = () => {
-	const { searchString, setSearchString, getSearchData, selectUnit, getSelectUnit } = useContext(
-		UserContext
-	);
-	
+	const {
+		searchString,
+		setSearchString,
+		getSearchData,
+		selectUnit,
+		getSelectUnit,
+	} = useContext(UserContext);
+
 	return (
 		<div>
 			<h3>Hello from input</h3>
