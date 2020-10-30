@@ -1,44 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 // import './App.css';
-import WeatherInfo from './Components/WeatherInfo'
-import Header from './Components/Header'
-import { UserContext } from './UserContext'
+import WeatherInfo from './Components/WeatherInfo';
+import Header from './Components/Header';
+import { UserContext } from './UserContext';
 
 function App() {
-  const [weatherLocation, setWeatherLocation]= useState('')
-  const [searchString, setSearchString]=useState('')
-  
-  const getSearchData = () => {
-    const url = `https://www.metaweather.com/api/location/search/?query=${searchString}/`;
-    // `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=${searchString}&appid=${process.env.REACT_APP_STOCK_API_KEY}`
-
-		// `https://api.weatherstack.com/current?access_key=${process.env.REACT_APP_STOCK_API_KEY}&query=${searchString}&units=f`;
-
+	const [weatherLocation, setWeatherLocation] = useState('');
+	const [searchString, setSearchString] = useState('');
+	const [selectUnit, setSelectUnit] = useState('I')
+	const getSearchData = () => {
+		const url = `https://api.weatherbit.io/v2.0/current?city=${searchString}&units=${selectUnit}&key=
+		${process.env.REACT_APP_STOCK_API_KEY}`;
 		fetch(url)
 			.then((res) => res.json())
+			.then((res) => {
+				console.log(res);
+				return res;
+			})
 			.then((resJson) => setWeatherLocation(resJson))
-			.then((res) => console.log(res))
-
-			.catch(console.error);
+			.catch(() => console.log('There was an error'));
+	};
+		
 	}
-  return (
-    <div className="App">
-      <h1>Find the weather</h1>
-<UserContext.Provider value={{weatherLocation, setWeatherLocation, searchString, setSearchString, getSearchData}}>
-     <Header/>
-    <WeatherInfo />
-</UserContext.Provider>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<h1>Find the weather</h1>
+			<UserContext.Provider
+				value={{
+					weatherLocation,
+					setWeatherLocation,
+					searchString,
+					setSearchString,
+					getSearchData,
+					selectUnit, setSelectUnit,
+				}}>
+				<Header />
+				<WeatherInfo />
+			</UserContext.Provider>
+		</div>
+	);
 }
 
 export default App;
-
-//PSEUDO CODE
-//So I will need grab the weather URL, and depending on which location I put in, the fetch should query from that location. 
-//I will need to use fetch, and useState
-
-
-//Once queried, the location's weather data should show up in a readable fashion.
-
-//type in input ba
