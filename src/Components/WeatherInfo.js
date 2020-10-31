@@ -34,7 +34,8 @@ const WeatherInfo = () => {
 	} else {
 		return (
 			<div>
-				<h1>Ah... {weatherLocation.data[0].city_name}'s weather.</h1>
+				<h1>Whose weather would you like to view?</h1>
+				<h2>Ah... {weatherLocation.data[0].city_name}'s weather.</h2>
 				<h2>
 					At {weatherLocation.data[0].ob_time} it is {weatherLocation.data[0].temp}{tempUnit} but feels like {weatherLocation.data[0].app_temp}{tempUnit} in {weatherLocation.data[0].city_name}
 				</h2>
