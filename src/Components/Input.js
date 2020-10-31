@@ -11,14 +11,12 @@ const Input = () => {
 		getSearchData,
 		selectUnit,
 		setSelectUnit,
-		tempUnit,
-		setTempUnit,
 		getTempUnit,
 	} = useContext(UserContext);
 
 	return (
 		<div>
-			<h3>Hello from input</h3>
+			
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
@@ -28,7 +26,7 @@ const Input = () => {
 				}}>
 				<input
 					type='text'
-					placeholder='What location?'
+					placeholder="What is your location?"
 					value={searchString}
 					onChange={(event) => setSearchString(event.target.value)}
 				/>

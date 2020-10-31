@@ -43,7 +43,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<h1>Find the weather</h1>
+			<h1>The Weather Finder!</h1>
 			<UserContext.Provider
 				value={{
 					weatherLocation,

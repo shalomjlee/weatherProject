@@ -28,20 +28,17 @@ const WeatherInfo = () => {
 	// };
 
 	if (weatherLocation.error) {
-		return <h1>Hey! Can't find it</h1>;
+		return <h1>Can't find the location you were looking for :(</h1>;
 	} else if (!weatherLocation.data) {
 		return <h1>Whose weather would you like to view?</h1>;
 	} else {
 		return (
 			<div>
-				<h1>Welcome to {weatherLocation.data[0].city_name}</h1>
+				<h1>Ah... {weatherLocation.data[0].city_name}'s weather.</h1>
 				<h2>
-					At {weatherLocation.data[0].datetime} it is{' '}
-					{weatherLocation.data[0].app_temp}
-					{tempUnit}
-					 in {weatherLocation.data[0].city_name}
+					At {weatherLocation.data[0].ob_time} it is {weatherLocation.data[0].temp}{tempUnit} but feels like {weatherLocation.data[0].app_temp}{tempUnit} in {weatherLocation.data[0].city_name}
 				</h2>
-				<h2>Current skies:{weatherLocation.data[0].weather.description}</h2>
+				<h2>Current skies: {weatherLocation.data[0].weather.description}</h2>
 				<h2>Relative humidity is at {weatherLocation.data[0].rh}% </h2>
 			</div>
 		);
