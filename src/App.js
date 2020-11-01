@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './App.css';
+
 import WeatherInfo from './Components/WeatherInfo';
 import Header from './Components/Header';
 import { UserContext } from './UserContext';
@@ -32,11 +32,6 @@ function App() {
 		${process.env.REACT_APP_STOCK_API_KEY}`;
 		fetch(url)
 			.then((res) => res.json())
-			.then((res) => {
-				// setNewSearch(true);
-				console.log(res);
-				return res;
-			})
 			.then((resJson) => setWeatherLocation(resJson))
 			.catch(() => console.log('There was an error'));
 	};

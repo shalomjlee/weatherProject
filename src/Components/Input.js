@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import './Input.css';
 
@@ -53,7 +53,4 @@ const Input = () => {
 };
 
 export default Input;
-//only send API request when button is submitted
 
-//when select a value, fetchs API to change the units={this} portion to the option value
-//i need to figure out how to get select value and set it as the getselectunit.
