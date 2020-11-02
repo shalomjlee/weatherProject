@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-// import './App.css';
 import WeatherInfo from './Components/WeatherInfo';
 import Header from './Components/Header';
 import { UserContext } from './UserContext';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Documentation from './Components/Documentation';
+
 
 function App() {
 	const [weatherLocation, setWeatherLocation] = useState('');
@@ -32,18 +30,13 @@ function App() {
 		${process.env.REACT_APP_STOCK_API_KEY}`;
 		fetch(url)
 			.then((res) => res.json())
-			.then((res) => {
-				// setNewSearch(true);
-				console.log(res);
-				return res;
-			})
 			.then((resJson) => setWeatherLocation(resJson))
 			.catch(() => console.log('There was an error'));
 	};
 
 	return (
 		<div className='App'>
-			<h1>The Weather Finder!</h1>
+		
 			<UserContext.Provider
 				value={{
 					weatherLocation,
@@ -53,7 +46,7 @@ function App() {
 					getSearchData,
 					selectUnit,
 					setSelectUnit,
-				
+
 					tempUnit,
 					setTempUnit,
 					getTempUnit,
