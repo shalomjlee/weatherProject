@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-
 import WeatherInfo from './Components/WeatherInfo';
 import Header from './Components/Header';
 import { UserContext } from './UserContext';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Documentation from './Components/Documentation';
+
 
 function App() {
 	const [weatherLocation, setWeatherLocation] = useState('');
@@ -38,7 +36,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<h1>The Weather Finder!</h1>
+		
 			<UserContext.Provider
 				value={{
 					weatherLocation,
@@ -48,7 +46,7 @@ function App() {
 					getSearchData,
 					selectUnit,
 					setSelectUnit,
-				
+
 					tempUnit,
 					setTempUnit,
 					getTempUnit,

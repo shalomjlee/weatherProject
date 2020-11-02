@@ -7,11 +7,11 @@ const WeatherInfo = () => {
 	if (weatherLocation.error) {
 		return <h1>Can't find the location you were looking for :(</h1>;
 	} else if (!weatherLocation.data) {
-		return <h1>Whose weather would you like to view?</h1>;
+		return null;
 	} else {
 		return (
-			<div>
-				<h1>Whose weather would you like to view?</h1>
+			<>
+		
 				<h2>Ah... {weatherLocation.data[0].city_name}'s weather.</h2>
 				<h3>
 					At {weatherLocation.data[0].ob_time} it is{' '}
@@ -25,7 +25,7 @@ const WeatherInfo = () => {
 				</h3>
 				<h3>Current skies: {weatherLocation.data[0].weather.description}</h3>
 				<h3>Relative humidity is at {weatherLocation.data[0].rh}% </h3>
-			</div>
+			</>
 		);
 	}
 };
